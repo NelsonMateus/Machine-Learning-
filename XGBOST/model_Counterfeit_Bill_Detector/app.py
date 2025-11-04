@@ -5,12 +5,18 @@ import pandas as pd
 st.title("DETECTOR DE NOTAS FALSAS - NELSON")
 st.write("Por Nelson - Cientista de Dados")
 
+import os
+
 @st.cache_resource
 def carregar_modelo():
+    # Caminho absoluto garantido no Streamlit Cloud
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    caminho_modelo = os.path.join(base_dir, 'detector_notas_nelson.json')
+    
     model = xgb.XGBClassifier()
-    model.load_model('detector_notas_nelson.json')  # Streamlit encontra automaticamente na mesma pasta
+    model.load_model(caminho_modelo)
     return model
-
+    
 model = carregar_modelo()
 
 st.header("Meça a nota e digite:")
