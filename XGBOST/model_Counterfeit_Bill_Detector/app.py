@@ -11,7 +11,7 @@ import os
 def carregar_modelo():
     # Caminho absoluto garantido no Streamlit Cloud
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    caminho_modelo = os.path.join(base_dir, 'detector_notas_nelson.json')
+    caminho_modelo = os.path.join(base_dir, 'dectector_notas_nelson.json')
     
     model = xgb.XGBClassifier()
     model.load_model(caminho_modelo)
