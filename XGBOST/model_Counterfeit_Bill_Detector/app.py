@@ -8,7 +8,7 @@ st.write("Por Nelson - Cientista de Dados")
 @st.cache_resource
 def carregar_modelo():
     model = xgb.XGBClassifier()
-    model.load_model('detector_notas_nelson.json')  # Streamlit encontra automaticamente na mesma pasta
+    model.load_model('./detector_notas_nelson.json')  # Streamlit encontra automaticamente na mesma pasta
     return model
 
 model = carregar_modelo()
